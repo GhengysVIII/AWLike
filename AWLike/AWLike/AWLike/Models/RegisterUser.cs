@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AWLike.Models
+namespace AWLike.Models 
 {
-    public class LoginUser : IBaseUser
+    class RegisterUser : IBaseUser
     {
-        public int Id { get; set; }
         public string Username { get; set; }
-        public string Password { get; set; }
+        public string Email { get; set; }
+        public string Password{ get; set; }
     }
 }

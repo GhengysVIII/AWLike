@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Entry Placeholder="Username or Email"/>
-            <Entry Placeholder="Password"/>
+            <Entry Placeholder="Password" IsPassword="True"/>
             <Button Text="login"/>
 
         </StackLayout>
