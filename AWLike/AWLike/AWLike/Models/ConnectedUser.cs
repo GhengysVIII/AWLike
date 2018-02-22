@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AWLike.Models
 {
-    public class UserConnected : IBaseUser
+    public class ConnectedUser : IBaseUser
     {
         public int Id { get; set; }
         public string Username { get; set; }

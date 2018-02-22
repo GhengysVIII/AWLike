@@ -13,7 +13,7 @@ namespace AWLike
 		{
 			InitializeComponent();
 
-			MainPage = new AWLike.MainPage();
+			MainPage = new AWLike.ChooseLoginRegisterPage();
 		}
 
 		protected override void OnStart ()
