@@ -7,7 +7,6 @@ namespace AWLike.Models
 {
     public class LoginUser : IBaseUser
     {
-        public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
     }

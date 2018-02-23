@@ -6,8 +6,8 @@
         <StackLayout>
             <Label Text="Advance Wars Like"/>
 
-            <Button Text="Login" Command="{Binding LoginCommand}"/>
-            <Button Text="Register" Command="{Binding RegisterCommand}" />
+            <Button Text="Login" Command="{Binding LoginPageCommand}"/>
+            <Button Text="Register" Command="{Binding RegisterPageCommand}" />
 
         </StackLayout>
     </ContentPage.Content>

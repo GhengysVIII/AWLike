@@ -4,9 +4,9 @@
              x:Class="AWLike.LoginPage">
     <ContentPage.Content>
         <StackLayout>
-            <Entry Placeholder="Username or Email"/>
-            <Entry Placeholder="Password" IsPassword="True"/>
-            <Button Text="login"/>
+            <Entry Placeholder="Username or Email" Text="{Binding UsernameEntry}"/>
+            <Entry Placeholder="Password" IsPassword="True" Text="{Binding PasswordEntry}"/>
+            <Button Text="login" Command="{Binding LoginCommand}"/>
 
         </StackLayout>
     </ContentPage.Content>

@@ -1,4 +1,6 @@
 ﻿using AWLike.Models;
+using AWLike.Services;
+using AWLike.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +17,8 @@ namespace AWLike
 	{
 		public LoginPage ()
 		{
-			InitializeComponent ();
+            BindingContext = new SignInRegisterVM(new PageChange());
+            InitializeComponent ();
 		}
 	}
 }
