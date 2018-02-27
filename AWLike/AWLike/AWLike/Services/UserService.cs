@@ -12,17 +12,17 @@ namespace AWLike.Services
     public static class UserService
     {
 
-        public static ConnectedUser Log(LoginUser user)
+        public async static Task<ConnectedUser> Log(LoginUser user)
         {
             //log to service
 
             ApiConnector api = new ApiConnector(ConnectionConfig.APIUrlUserLog);
             //api.paramList.Add("Username", user.Username);
             //api.paramList.Add("Password", user.Password);
-            var task = api.PostJSON(user);
+            var task = await api.PostJSON(user);
             ConnectedUser u = task.JSONToConnectedUser();
 
-            return new ConnectedUser() { Id = -1, Username="Test", Email="test@test.com" };
+            return u;
 
             
 

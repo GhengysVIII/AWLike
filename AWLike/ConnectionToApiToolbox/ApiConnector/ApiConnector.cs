@@ -36,7 +36,7 @@ namespace ConnectionToApiToolbox.ApiConnector
             }
         }
 
-        public string PostJSON<TResult>(TResult param) where TResult : class
+        public async Task<string>  PostJSON<TResult>(TResult param) where TResult : class
         {
             using (HttpClient c = new HttpClient())
             {
@@ -53,7 +53,7 @@ namespace ConnectionToApiToolbox.ApiConnector
                 //var content = new FormUrlEncodedContent(paramList);
                 
 
-                c.DefaultRequestHeaders.Accept.Clear();
+                //c.DefaultRequestHeaders.Accept.Clear();
                 c.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 //c.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
                 string Json = JsonConvert.SerializeObject(param);
@@ -82,7 +82,7 @@ namespace ConnectionToApiToolbox.ApiConnector
                     Console.WriteLine(Response.StatusCode);
                     Console.WriteLine();
 
-                    string Result = Response.Content.ReadAsStringAsync().Result;
+                    string Result = await Response.Content.ReadAsStringAsync();
                     return Result;
 
                     //return JsonConvert.DeserializeObject<TResult>(Result);

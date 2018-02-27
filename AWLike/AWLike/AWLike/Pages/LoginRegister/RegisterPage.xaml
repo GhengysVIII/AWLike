@@ -5,10 +5,10 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout>
-                <Entry Placeholder="Username" Text="{Binding UsernameEntry}"/>
-                <Entry Placeholder="Email" Text="{Binding EmailEntry}"/>
-                <Entry Placeholder="Password" IsPassword="True" Text="{Binding PasswordEntry}"/>
-                <Entry Placeholder="Confirm Password" IsPassword="True" Text="{Binding PasswordConfirmEntry}"/>
+                <Entry Placeholder="Username" Text="{Binding registerUser.Username}"/>
+                <Entry Placeholder="Email" Text="{Binding registerUser.Email}"/>
+                <Entry Placeholder="Password" IsPassword="True" Text="{Binding registerUser.Password}"/>
+                <Entry Placeholder="Confirm Password" IsPassword="True" Text="{Binding registerUser.ConfirmPassword}"/>
 
                 <Button Text="Register" Command="{Binding RegisterCommand}"/>
 
