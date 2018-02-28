@@ -30,8 +30,22 @@ namespace ConnectionToApiToolbox.ApiConnector
         {
             using (HttpClient http = new HttpClient())
             {
-                HttpResponseMessage message = await http.GetAsync(Url);
-                return await message.Content.ReadAsStringAsync();
+                HttpResponseMessage Response = await http.GetAsync(Url);
+                Response.EnsureSuccessStatusCode();
+                await Response.Content.ReadAsStringAsync();
+
+                if (Response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine(Response.StatusCode);
+                    Console.WriteLine();
+
+                    string Result = await Response.Content.ReadAsStringAsync();
+                    return Result;
+
+                    //return JsonConvert.DeserializeObject<TResult>(Result);
+                }
+                return null;
+
 
             }
         }
