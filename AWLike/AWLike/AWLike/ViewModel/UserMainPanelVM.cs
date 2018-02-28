@@ -5,6 +5,8 @@ using AWLike.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.Diagnostics;
 using System.Text;
 
 namespace AWLike.ViewModel
@@ -20,7 +22,6 @@ namespace AWLike.ViewModel
             get { return _GamesAvailable; }
             set {
                     _GamesAvailable = value;
-                    OnPropertyChange(GamesAvailable);
             }
         }
 
@@ -32,23 +33,43 @@ namespace AWLike.ViewModel
             set { _GamesIn = value; }
         }
 
-        
-
         public UserMainPanelVM(IPageChange P, ConnectedUser user)
         {            
             _navigation = P;
             this.user = user;
 
+            GamesAvailable.CollectionChanged += Names_CollectionChanged;
+            GamesIn.CollectionChanged += Names_CollectionChanged;
+
             LoadGamesAvailable();
-            GamesAvailable.
-
-
+            
         }
-        
+
+        static void Names_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            Debug.WriteLine("Change type: " + e.Action);
+            if (e.NewItems != null)
+            {
+                Debug.WriteLine("Items added: ");
+                foreach (var item in e.NewItems)
+                {
+                    Debug.WriteLine(item);
+                }
+            }
+
+            if (e.OldItems != null)
+            {
+                Debug.WriteLine("Items removed: ");
+                foreach (var item in e.OldItems)
+                {
+                    Debug.WriteLine(item);
+                }
+            }
+        }
+
         public async void LoadGamesAvailable()
         {
             _GamesAvailable =  new ObservableCollection<GameInfo>(await GameService.GetAllAvailable());
-        }
-        
+        }        
     }
 }
